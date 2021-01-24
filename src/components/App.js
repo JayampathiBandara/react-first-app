@@ -3,7 +3,7 @@ import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import Header from "./common/Header";
 import CoursesPage from "./CoursesPage"; // With default export, import is easy
-import { Route, Switch } from "react-router-dom"; // without default export, , import is inside {}
+import { Redirect, Route, Switch } from "react-router-dom"; // without default export, , import is inside {}
 import NotFoundPage from "./common/NotFoundPage";
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/courses" component={CoursesPage} />
+        <Redirect from="/about-page" to="/about" />
         <Route path="/about" component={AboutPage} />
         <Route component={NotFoundPage} />
       </Switch>
