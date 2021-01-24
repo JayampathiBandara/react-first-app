@@ -7,6 +7,10 @@ import { Redirect, Route, Switch } from "react-router-dom"; // without default e
 import NotFoundPage from "./common/NotFoundPage";
 import ManageCoursePage from "./ManageCoursePage";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/scss/main.scss";
+//import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   /* no need with Route
   function getPage() {
@@ -17,6 +21,7 @@ function App() {
   }*/
   return (
     <div className="container-fluid">
+      <ToastContainer autoClose={3000} hideProgressBar />
       <Header />
       <Switch>
         <Route path="/" exact component={HomePage} />
