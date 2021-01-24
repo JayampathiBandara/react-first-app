@@ -3,7 +3,8 @@ import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import Header from "./common/Header";
 import CoursesPage from "./CoursesPage"; // With default export, import is easy
-import { Route } from "react-router-dom"; // without default export, , import is inside {}
+import { Route, Switch } from "react-router-dom"; // without default export, , import is inside {}
+import NotFoundPage from "./common/NotFoundPage";
 
 function App() {
   /* no need with Route
@@ -16,9 +17,12 @@ function App() {
   return (
     <div className="container-fluid">
       <Header />
-      <Route path="/" exact component={HomePage} />
-      <Route path="/courses" component={CoursesPage} />
-      <Route path="/about" component={AboutPage} />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/courses" component={CoursesPage} />
+        <Route path="/about" component={AboutPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
     </div>
   );
 }
