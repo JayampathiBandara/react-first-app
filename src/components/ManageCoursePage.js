@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //import { Prompt } from "react-router-dom";
 import CourseForm from "./CourseForm";
+import * as courseApi from "../api/courseApi";
 
 const ManageCoursePage = (props) => {
   const [course, setCourse] = useState({
@@ -32,11 +33,24 @@ const ManageCoursePage = (props) => {
     setCourse(updatedCourse);
   }
 
+  function handleSubmit(event) {
+    // prevent the paeg from posting back to server
+    event.preventDefault();
+    courseApi.saveCourse(course);
+  }
+
   return (
     <>
       <h2>Manage Course</h2>
       {/*<Prompt when={true} message="Are you sure you want to leave?" />*/}
-      <CourseForm course={course} onChange={handleChange} />
+
+      {/* Here what ever values we pass to 
+      <CourseForm tag they are assign to CourseForm(props) props property of the function */}
+      <CourseForm
+        course={course}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
     </>
   );
 };
