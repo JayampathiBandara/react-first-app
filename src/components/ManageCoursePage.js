@@ -36,7 +36,9 @@ const ManageCoursePage = (props) => {
   function handleSubmit(event) {
     // prevent the paeg from posting back to server
     event.preventDefault();
-    courseApi.saveCourse(course);
+    courseApi.saveCourse(course).then(() => {
+      props.history.push("/courses");
+    });
   }
 
   return (
