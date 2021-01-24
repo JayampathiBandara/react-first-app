@@ -9,7 +9,8 @@ function CourseForm(props) {
           id="title"
           type="text"
           name="title"
-          value=""
+          value={props.course.title}
+          onChange={props.onTitleChange}
           className="form-control"
         />
       </div>
@@ -18,7 +19,7 @@ function CourseForm(props) {
         <label htmlFor="author">Author</label>
         <div className="field">
           <select id="author" name="authorId" value="" className="form-control">
-            <option value="" />
+            <option value={props.course.authorId || ""} />
             <option value="1">Cory House</option>
             <option value="2">Scott Allen</option>
           </select>
@@ -30,7 +31,7 @@ function CourseForm(props) {
           id="category"
           type="text"
           name="category"
-          value=""
+          value={props.course.category}
           className="form-control"
         />
       </div>
